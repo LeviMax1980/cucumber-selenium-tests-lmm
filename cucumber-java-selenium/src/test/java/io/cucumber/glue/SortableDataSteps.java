@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,11 @@ public class SortableDataSteps extends Context {
 
     @And("data tables are displayed")
     public void data_tables_are_displayed() {
-        manager.getDriver().findElements(By.id("title"));
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        ChromeDriver driver = new ChromeDriver();
+        driver.get("URL_OF_YOUR_TABLE_PAGE");
+        manager.getDriver().findElements(By.id("table1"));
+        manager.getDriver().findElements(By.id("table2"));
     }
 
     @Then("user should see the following in table 1:")
