@@ -1,11 +1,15 @@
 package io.cucumber.core;
 
 import java.util.HashMap;
+
+import io.cucumber.glue.HomeSteps;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Context {
 
   protected Manager manager;
+
+  protected HomeSteps home;
 
   public Context(Manager manager) {
     this.manager = manager;

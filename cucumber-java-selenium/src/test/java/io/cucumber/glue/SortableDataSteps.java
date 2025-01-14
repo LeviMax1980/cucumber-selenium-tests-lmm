@@ -22,11 +22,10 @@ public class SortableDataSteps extends Context {
 
     @And("data tables are displayed")
     public void data_tables_are_displayed() {
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
         ChromeDriver driver = new ChromeDriver();
-        driver.get("URL_OF_YOUR_TABLE_PAGE");
-        manager.getDriver().findElements(By.id("table1"));
-        manager.getDriver().findElements(By.id("table2"));
+        driver.get("https://the-internet.herokuapp.com/tables");
+        getDriver().findElements(By.id("table1"));
+        getDriver().findElements(By.id("table2"));
     }
 
     @Then("user should see the following in table 1:")
@@ -35,7 +34,7 @@ public class SortableDataSteps extends Context {
         List<Map<String, String>> expectedTable = dataTable.asMaps(String.class, String.class);
 
         // Find the table on the page
-        WebElement actualTable = manager.getDriver().findElement(By.id("table1"));
+        WebElement actualTable = getDriver().findElement(By.id("table1"));
 
         // Get all rows from the table
         List<WebElement> rows = actualTable.findElements(By.tagName("tr"));

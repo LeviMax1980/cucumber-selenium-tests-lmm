@@ -7,6 +7,7 @@ import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
 import java.util.logging.Level;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
@@ -27,8 +28,8 @@ public class Hooks extends Context {
     options.setCapability(ChromeOptions.LOGGING_PREFS, logPrefs);
     manager.setDriver(new ChromeDriver(options));
     System.out.println("Made driver");
+    System.setProperty("webdriver.chrome.driver", "C://BuildTools//chromedriver-win64/chromedriver");
   }
-
   @BeforeStep
   public void beforeStep() {
     System.out.println("Starting step..............................");
